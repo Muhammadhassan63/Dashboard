@@ -1,4 +1,6 @@
-Admin Dasboard README
+Admin Dasboard README:
+
+
 This is an admin dashboard. Based on the figma design provided. The dashboard is divived in component
 
 Features

@@ -41,9 +41,7 @@ This Admin Dashboard is fully customizable to suit your specific needs. You can 
 
 If you find any issues or have suggestions for improvement, feel free to submit a pull request or open an issue. Contributions from the community are highly appreciated!
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Credits
 

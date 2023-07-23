@@ -1,12 +1,10 @@
 import './App.css';
-
-import Layout from './component/Layout/Layout';
-
+import Dashboard from './Pages/Dashboard';
 
 function App() {
   return (
     <div >
-      <Layout/>
+      <Dashboard />
     </div>
   );
 }

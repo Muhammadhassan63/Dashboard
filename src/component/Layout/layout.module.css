@@ -1,7 +1,36 @@
-.container{
-    margin: 1.3rem;
+
+.navbar, .data{
+    margin-left: 20rem;
 }
 
+.mobileNavbarWrapper{
+    display: none;
+}
+
+
+@media (max-width: 414px) {
+.mobileNavbarWrapper{
+    display: block;
+}
+    .sidebar {
+      display: none;
+    }
+
 .navbar{
-    margin-left: 20rem;
+    display: none;
+}
+
+.mobileNavbarWrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+  }
+    .data{
+        margin-left: 0.8rem;
+       
+    }  
+
 }

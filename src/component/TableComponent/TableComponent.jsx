@@ -31,7 +31,7 @@ const data = [
     "Total Cost": 275,
   },
   {
-    "Email Address": "william.harriss@gmail.com",
+    "Email Address": "william.1@gmail.com",
     "Report Failed": 18,
     "Report Generated": 40,
     "Total Cost": 205,
@@ -59,7 +59,10 @@ const TableComponent = () => {
     }
   };
 
+ 
+
   return (
+    
     <div className={style.tableContainer}>
       <div className={style.roundedTableWrapper}>
         <table className={style.table}>

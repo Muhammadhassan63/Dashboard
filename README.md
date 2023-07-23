@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+Admin Dashboard README:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Admin Dashboard
 
-## Available Scripts
 
-In the project directory, you can run:
+<img width="957" alt="image" src="https://github.com/Muhammadhassan63/Dashboard/assets/80644042/4169c18f-deba-4fac-94c3-1c17ce2c3db0">
 
-### `npm start`
+The Admin Dashboard is a web-based application designed to provide administrators with a powerful and user-friendly interface for managing various aspects of the system. This dashboard is built based on the design provided in Figma, ensuring a consistent and visually appealing user experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Tabular Data Display:** The main feature of this Admin Dashboard is the display of tabular data with columns such as "Email Address," "Report Failed," "Report Generated," "Total Cost," and "Actions." The data is presented in a clean and organized format, allowing administrators to quickly access and manage information.
 
-### `npm test`
+- **Sortable Data:** Administrators can sort the data in ascending or descending order based on the "Total Cost" field by simply clicking the "Sort" button. This feature enables easy analysis and helps administrators identify patterns in the data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Filterable Data:** The dashboard provides a filter option that allows administrators to enter a specific value for the "Total Cost" field and filter the data accordingly. This feature simplifies the process of finding specific records based on custom criteria.
 
-### `npm run build`
+- **Action Icons:** Each row in the table displays an email address, report failure count, report generation count, total cost, and two action icons. These action icons represent different actions that can be performed on each row, providing administrators with quick access to essential functions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Installation:** Clone this repository to your local machine and run `npm install` to install the required dependencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Run the Application:** After installation, use the command `npm start` to start the development server. The Admin Dashboard will be accessible at `http://localhost:3000`.
 
-### `npm run eject`
+3. **Data Customization:** To customize the data displayed in the table, modify the `data` array in the `TableComponent.js` file. You can add, update, or remove rows as needed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React:** The Admin Dashboard is built using the React JavaScript library, which allows for the creation of reusable and interactive UI components.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **CSS Modules:** CSS Modules are utilized to style the components in a modular and isolated manner, avoiding potential style conflicts.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Figma:** The design for this Admin Dashboard was created in Figma, providing a comprehensive visual guide for the project's layout and styling.
 
-## Learn More
+## Customization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This Admin Dashboard is fully customizable to suit your specific needs. You can modify the layout, colors, and components to match your branding and application requirements.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contribution
 
-### Code Splitting
+If you find any issues or have suggestions for improvement, feel free to submit a pull request or open an issue. Contributions from the community are highly appreciated!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Credits
 
-### Making a Progressive Web App
+- The design for this Admin Dashboard was provided by [Figma User: exampleUser](https://www.figma.com/@exampleUser) and can be accessed [here](figma-dashboard-design-url).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Special thanks to the [React](https://reactjs.org/) community for the amazing library that made building this dashboard efficient and enjoyable.

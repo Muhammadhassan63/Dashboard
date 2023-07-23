@@ -46,6 +46,5 @@ If you find any issues or have suggestions for improvement, feel free to submit 
 
 ## Credits
 
-- The design for this Admin Dashboard was provided by [Figma User: exampleUser](https://www.figma.com/@exampleUser) and can be accessed [here](figma-dashboard-design-url).
+- The design for this Admin Dashboard can be accessed [here]([figma-dashboard-design-url](https://www.figma.com/file/2aMWf8fopI7fXklP4J7jH2/Untitled?node-id=12%3A684&mode=dev)https://www.figma.com/file/2aMWf8fopI7fXklP4J7jH2/Untitled?node-id=12%3A684&mode=dev).
 
-- Special thanks to the [React](https://reactjs.org/) community for the amazing library that made building this dashboard efficient and enjoyable.

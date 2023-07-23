@@ -46,5 +46,6 @@ If you find any issues or have suggestions for improvement, feel free to submit 
 
 ## Credits
 
-- The design for this Admin Dashboard can be accessed [here]([figma-dashboard-design-url](https://www.figma.com/file/2aMWf8fopI7fXklP4J7jH2/Untitled?node-id=12%3A684&mode=dev)https://www.figma.com/file/2aMWf8fopI7fXklP4J7jH2/Untitled?node-id=12%3A684&mode=dev).
+- The design for this Admin Dashboard can be accessed [here](https://www.figma.com/file/2aMWf8fopI7fXklP4J7jH2/Untitled?node-id=12%3A684&mode=dev).
+
 

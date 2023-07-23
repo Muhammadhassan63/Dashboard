@@ -78,7 +78,7 @@ cursor: pointer;
 }
 
 
-@media (max-width: 412px) {
+@media (max-width: 414px) {
   .buttonContainer {
     display: inline;
   }
@@ -98,7 +98,7 @@ cursor: pointer;
     display: none;
   }
  
-  @media (max-width: 412px) {
+  @media (max-width: 414px) {
     .pageButton{
       margin-bottom: 10px;
     }

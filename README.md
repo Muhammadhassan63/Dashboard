@@ -4,6 +4,7 @@ Admin Dashboard README:
 
 
 <img width="957" alt="image" src="https://github.com/Muhammadhassan63/Dashboard/assets/80644042/4169c18f-deba-4fac-94c3-1c17ce2c3db0">
+<img width="161" alt="image" src="https://github.com/Muhammadhassan63/Dashboard/assets/80644042/61f783f6-eff7-486c-97d1-4f0e571d0e12">
 
 The Admin Dashboard is a web-based application designed to provide administrators with a powerful and user-friendly interface for managing various aspects of the system. This dashboard is built based on the design provided in Figma, ensuring a consistent and visually appealing user experience.
 
@@ -45,6 +46,6 @@ If you find any issues or have suggestions for improvement, feel free to submit 
 
 ## Credits
 
-- The design for this Admin Dashboard was provided by [Figma User: exampleUser](https://www.figma.com/@exampleUser) and can be accessed [here](figma-dashboard-design-url).
+- The design for this Admin Dashboard can be accessed [here](https://www.figma.com/file/2aMWf8fopI7fXklP4J7jH2/Untitled?node-id=12%3A684&mode=dev).
 
-- Special thanks to the [React](https://reactjs.org/) community for the amazing library that made building this dashboard efficient and enjoyable.
+

@@ -22,7 +22,6 @@ const Data = () => {
         <input type="text" placeholder="search here" />
       </div>
 
-
       <TableComponent />
     </div>
   );

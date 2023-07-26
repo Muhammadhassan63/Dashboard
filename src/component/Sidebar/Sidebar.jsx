@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import logo from "../../assets/logo.png";
 import icon from "../../assets/icon.png";
 import icon1 from "../../assets/icon-1.png";
@@ -6,9 +6,12 @@ import icon2 from "../../assets/icon-2.png";
 import logoutIcon from "../../assets/logout-icon.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../AuthContext'; 
+
 
 import style from "./sidebar.module.css";
 export default function Sidebar() {
+  const { handleLogout } = useContext(AuthContext);
 
   const navigate=useNavigate();
 
@@ -61,7 +64,7 @@ export default function Sidebar() {
         </div>
         <div className={style.sidebarBottom}>
           <li className={style.navItem}>
-            <img src={logoutIcon} alt="icon" /><Link to="/login" className={style.logout} >Logout</Link> 
+            <img src={logoutIcon} alt="icon" /><Link to="/login" className={style.logout} onClick={handleLogout}>Logout</Link> 
           </li>
         </div>
       </div>

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -15,15 +17,37 @@ const LoginPage = () => {
       !validateEmail(email) ||
       password.length < 8
     ) {
-      alert("Invalid email or password. Please enter valid credentials.");
+      setError("Password is less than 8 digits or email format is not correct");
     } else {
-      navigate("/home");
+      fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.token) {
+            setError("");
+            handleLogin(data.token);
+          } else {
+            setError(data.message);
+          }
+        })
+        .catch((error) => {
+          setError("Error occurred while logging in");
+        });
     }
   };
 
   const validateEmail = (email) => {
     const emailRegex = /\S+@\S+\.\S+/;
     return emailRegex.test(email);
+  };
+
+  const handleInputChange = () => {
+    setError("");
   };
 
   return (
@@ -38,7 +62,10 @@ const LoginPage = () => {
                 type="email"
                 id="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  handleInputChange(); // Call the function to reset error
+                }}
                 required
               />
             </div>
@@ -48,12 +75,18 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  handleInputChange(); // Call the function to reset error
+                }}
                 required
               />
             </div>
           </div>
           <button type="submit">Login</button>
+          {error && (
+            <p style={{ color: "#fff", textAlign: "center" }}>{error}</p>
+          )}
         </form>
       </div>
     </div>

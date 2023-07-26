@@ -9,14 +9,14 @@ import Setting from "../../Pages/Setting/Setting";
 import Details from "../../Pages/Details/Details";
 
 
-export default function Layout() {
+export default function Layout({handleLogout}) {
   const pathname = window.location.pathname
 
   const navigate= useNavigate();
   return (
     <div className={style.container}>
       <div className={style.sidebar}>
-        <Sidebar />
+        <Sidebar handleLogout={handleLogout}/>
       </div>
       <div className={style.navbar}>
         <Navbar />

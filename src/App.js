@@ -1,28 +1,59 @@
 import './App.css';
-import { Route, Routes } from "react-router-dom"
-import { Navigate } from "react-router-dom"
+import { useState, useEffect } from 'react';
+import { Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login/LoginPage';
-import Details from './Pages/Details/Details'
+import Details from './Pages/Details/Details';
 import Setting from './Pages/Setting/Setting';
 import Layout from './component/Layout/Layout';
+import { AuthContext } from './AuthContext.js'; 
+
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwtToken");
+    console.log(token)
+
+    if (token) {
+      setIsLoggedIn(true);
+    }
+
+    setTimeout(() => {
+      localStorage.removeItem("jwtToken");
+      setIsLoggedIn(false);
+    }, 600000);
+  }, []);
+
+  const handleLogin = (token) => {
+    localStorage.setItem("jwtToken", token);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    setIsLoggedIn(false);
+  };
 
 
-
- 
+  
+  
   return (
-    <div >
-      
+    <div>
+    <AuthContext.Provider value={{ handleLogout }}>
+
       <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<Dashboard   />} />
-      <Route path="/home" element={<Dashboard/>} />
-      <Route path="/details" element={<Details/>} />
-      <Route path="/setting" element={<Layout/>} />
-    </Routes>
-      
+        {/* Set LoginPage as the initial route */}
+        <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login handleLogin={handleLogin} />} />
+        <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+        <Route path="/home" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
+        <Route path="/details" element={isLoggedIn ? <Details /> : <Navigate to="/login" />} />
+        <Route path="/setting" element={isLoggedIn ? <Layout /> : <Navigate to="/login" />} />
+      </Routes>
+      </AuthContext.Provider>
+
     </div>
   );
 }

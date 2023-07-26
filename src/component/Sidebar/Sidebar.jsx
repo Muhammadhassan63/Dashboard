@@ -4,7 +4,6 @@ import icon from "../../assets/icon.png";
 import icon1 from "../../assets/icon-1.png";
 import icon2 from "../../assets/icon-2.png";
 import logoutIcon from "../../assets/logout-icon.png";
-import { Link } from "react-router-dom";
 
 import style from "./sidebar.module.css";
 
@@ -57,7 +56,7 @@ export default function Sidebar() {
         </div>
         <div className={style.sidebarBottom}>
           <li className={style.navItem}>
-            <img src={logoutIcon} alt="icon" /><Link to="/login" className={style.logout} >Logout</Link> 
+            <img src={logoutIcon} alt="icon" /> Logout
           </li>
         </div>
       </div>

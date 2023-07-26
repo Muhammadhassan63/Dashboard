@@ -4,14 +4,19 @@ import icon from "../../assets/icon.png";
 import icon1 from "../../assets/icon-1.png";
 import icon2 from "../../assets/icon-2.png";
 import logoutIcon from "../../assets/logout-icon.png";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import style from "./sidebar.module.css";
-
 export default function Sidebar() {
+
+  const navigate=useNavigate();
+
   const [activeNavItem, setActiveNavItem] = useState("Home"); 
 
   const handleNavItemClick = (item) => {
     setActiveNavItem(item); 
+    navigate('/'.concat(item.toLowerCase()))
   };
 
   return (
@@ -56,7 +61,7 @@ export default function Sidebar() {
         </div>
         <div className={style.sidebarBottom}>
           <li className={style.navItem}>
-            <img src={logoutIcon} alt="icon" /> Logout
+            <img src={logoutIcon} alt="icon" /><Link to="/login" className={style.logout} >Logout</Link> 
           </li>
         </div>
       </div>

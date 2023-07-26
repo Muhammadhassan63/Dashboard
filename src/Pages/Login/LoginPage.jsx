@@ -1,20 +1,29 @@
-// LoginPage.jsx
 import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isFormValid, setIsFormValid] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email.trim() !== "" && password.trim() !== "") {
-      setIsFormValid(true);
+    if (
+      email.trim() === "" ||
+      password.trim() === "" ||
+      !validateEmail(email) ||
+      password.length < 8
+    ) {
+      alert("Invalid email or password. Please enter valid credentials.");
     } else {
-      setIsFormValid(false);
+      navigate("/home");
     }
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
   };
 
   return (
@@ -45,13 +54,7 @@ const LoginPage = () => {
             </div>
           </div>
           <button type="submit">Login</button>
-          <div className={styles.dashboardLink}>
-        {isFormValid && (
-          <Link to="/dashboard" className={styles.dashboardLink} >Go to Dashboard</Link>
-        )}
-        </div>
         </form>
-        
       </div>
     </div>
   );

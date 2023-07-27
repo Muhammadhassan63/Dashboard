@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
-import { useNavigate } from "react-router-dom";
+
+
 
 const LoginPage = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+ 
 
-  const navigate = useNavigate();
+
+// Log the hashed values to the console
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      email.trim() === "" ||
-      password.trim() === "" ||
-      !validateEmail(email) ||
-      password.length < 8
-    ) {
-      setError("Password is less than 8 digits or email format is not correct");
-    } else {
+    // if (
+    //   email.trim() === "" ||
+    //   password.trim() === "" ||
+    //   !validateEmail(email) ||
+    //   password.length < 8
+    // ) {
+    //   setError("Password is less than 8 digits or email format is not correct");
+    // } else {
+      // Hash the email and password using SHA-512
+      
+        
       fetch("http://localhost:8080/login", {
         method: "POST",
         headers: {
@@ -38,8 +44,9 @@ const LoginPage = ({ handleLogin }) => {
         .catch((error) => {
           setError("Error occurred while logging in");
         });
-    }
+    
   };
+
 
   const validateEmail = (email) => {
     const emailRegex = /\S+@\S+\.\S+/;
@@ -50,6 +57,8 @@ const LoginPage = ({ handleLogin }) => {
     setError("");
   };
 
+
+ 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer}>
@@ -59,11 +68,12 @@ const LoginPage = ({ handleLogin }) => {
             <div className={styles.formGroup}>
               <label htmlFor="email">Email</label>
               <input
-                type="email"
+                type="text"
                 id="email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
+                  
                   handleInputChange(); // Call the function to reset error
                 }}
                 required

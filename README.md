@@ -14,9 +14,15 @@ The Admin Dashboard is a web-based application designed to provide administrator
 
 - **Sortable Data:** Administrators can sort the data in ascending or descending order based on the "Total Cost" field by simply clicking the "Sort" button. This feature enables easy analysis and helps administrators identify patterns in the data.
 
-- **Filterable Data:** The dashboard provides a filter option that allows administrators to enter a specific value for the "Total Cost" field and filter the data accordingly. This feature simplifies the process of finding specific records based on custom criteria.
+- **Filterable Data:** The dashboard provides a filter option that allows administrators to enter a specific value for the "email" field and filter the data dynamically. 
+- **Action Icons:** The action icon download the specific data.
+- 
+- **JWT Token Authentication:** The Admin Dashboard uses JWT (JSON Web Token) authentication for enhanced security. After logging in, users receive a JWT token that is stored in their browser's local storage. This token remains valid for 1 hour. If the user revisits the site within this period, they are automatically logged in without the need to re-enter credentials. This approach ensures a secure and seamless login experience, reducing the risk of unauthorized access.
 
-- **Action Icons:** Each row in the table displays an email address, report failure count, report generation count, total cost, and two action icons. These action icons represent different actions that can be performed on each row, providing administrators with quick access to essential functions.
+- **Change profile pic and username:** Through the Setting page users can change their profile picture and username. 
+  
+
+- 
 
 ## Getting Started
 

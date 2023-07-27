@@ -1,10 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Route, Routes, Navigate } from "react-router-dom";
-import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login/LoginPage';
-import Details from './Pages/Details/Details';
-import Setting from './Pages/Setting/Setting';
 import Layout from './component/Layout/Layout';
 import { AuthContext } from './AuthContext.js'; 
 
@@ -48,8 +45,8 @@ function App() {
         {/* Set LoginPage as the initial route */}
         <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login handleLogin={handleLogin} />} />
         <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-        <Route path="/home" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
-        <Route path="/details" element={isLoggedIn ? <Details /> : <Navigate to="/login" />} />
+        <Route path="/home" element={isLoggedIn ? <Layout /> : <Navigate to="/login" />} />
+        <Route path="/details" element={isLoggedIn ? <Layout /> : <Navigate to="/login" />} />
         <Route path="/setting" element={isLoggedIn ? <Layout /> : <Navigate to="/login" />} />
       </Routes>
       </AuthContext.Provider>

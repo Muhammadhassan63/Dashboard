@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ActionIcon1 from "../../assets/action-icon1.png";
 import ActionIcon2 from "../../assets/action-icon2.png";
-import frame from "../../assets/frame.png";
-
+import detailsPDF from "../../details.pdf"; // Replace with the actual path to your PDF file
 import style from "./TableComponent.module.css";
 
 const data = [
@@ -42,6 +41,9 @@ const data = [
 const TableComponent = () => {
   const [filteredData, setFilteredData] = useState(data);
   const [sortOrder, setSortOrder] = useState("ascending");
+  const [searchTerm, setSearchTerm] = useState("");
+
+
 
   const handleSort = () => {
     if (sortOrder === "ascending") {
@@ -59,11 +61,42 @@ const TableComponent = () => {
     }
   };
 
- 
+  const handleSearch = (event) => {
+    const searchValue = event.target.value;
+    setSearchTerm(searchValue);
+    const filteredResults = data.filter((row) => {
+      const email = row["Email Address"].toLowerCase();
+      return email.includes(searchValue.toLowerCase());
+    });
+    setFilteredData(filteredResults);
+  };
+
+
+
+  const handleDownloadPdf = () => {
+    // The name of the PDF file you want to download
+    const pdfFileName = "details.pdf";
+
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = detailsPDF; 
+    link.target = "_blank"; 
+    link.download = "details.pdf"; 
+
+    link.click();
+  };
 
   return (
-    
     <div className={style.tableContainer}>
+      <div className={style.searchBox}>
+        <input
+          type="text"
+          placeholder="search by email"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
+      </div>
+
       <div className={style.roundedTableWrapper}>
         <table className={style.table}>
           <thead>
@@ -79,7 +112,7 @@ const TableComponent = () => {
             {filteredData.map((row, index) => (
               <tr key={index}>
                 <td>
-                  <img src={frame} alt="" className={style.frame} />
+                  
                   {row["Email Address"]}
                 </td>
                 <td className={style.reportFail}>{row["Report Failed"]}</td>
@@ -89,7 +122,7 @@ const TableComponent = () => {
                 <td>${row["Total Cost"]}</td>
                 <td>
                   <span className={style.actionIcons}>
-                    <img src={ActionIcon1} alt="" />
+                  <img src={ActionIcon1} alt="" onClick={handleDownloadPdf} />
                   </span>
                   <span className={style.actionIcons}>
                     <img src={ActionIcon2} alt="" />

@@ -1,9 +1,20 @@
+ // Setting.js
 import React, { useState } from "react";
-import styles from "./setting.module.css"; // Import the CSS module
+import styles from "./setting.module.css";
+import { useNavigate } from "react-router-dom";
 
-export default function Setting() {
-  const [imageURL, setImageURL] = useState(null);
-  const [name, setName] = useState('') ;
+
+export default function Setting({
+  setUsername,
+  setImageURL,
+  initialUsername,
+  initialImageURL,
+}) 
+
+
+{ 
+  const navigate = useNavigate();
+  const [name, setName] = useState(initialUsername);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -20,12 +31,14 @@ export default function Setting() {
 
   const handleButtonClick = () => {
     alert("Successfully Updated Profile");
+    setUsername(name);
     myFunction();
+    navigate('/home')
   };
 
   const myFunction = () => {
-    setImageURL("");
-    setName('')
+    setImageURL(initialImageURL);
+    setName(initialUsername);
   };
 
   return (
@@ -33,9 +46,9 @@ export default function Setting() {
       <h2>Setting Page</h2>
 
       <div className={styles["image-box"]}>
-        {imageURL ? (
+        {initialImageURL ? (
           <img
-            src={imageURL}
+            src={initialImageURL}
             alt="Uploaded"
             className={styles["uploaded-image"]}
           />

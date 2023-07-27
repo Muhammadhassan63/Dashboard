@@ -19,6 +19,7 @@ const Data = () => {
         <div className={style.heading}>Reports</div>
         <div className={style.subText}>Data is arranged in the following records</div>
 
+
         <input type="text" placeholder="search here" />
       </div>
 

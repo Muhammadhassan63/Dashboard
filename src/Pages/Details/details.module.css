@@ -1,0 +1,15 @@
+.mainContainer{
+    width: 90%;
+    color: #fff;
+     margin: auto;
+     text-align: center;
+     margin-bottom: 10rem;
+}
+
+.subHeading{
+    color: #d66329;
+}
+
+.feature{
+    text-align: left;
+}

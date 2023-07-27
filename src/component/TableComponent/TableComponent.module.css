@@ -78,6 +78,24 @@ cursor: pointer;
 }
 
 
+.searchBox input {
+  padding: 0.6rem; 
+  border-radius: 6px; 
+  color: #BAC4D1;
+  font-family: "Roboto";
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: #3B4758;
+  width: 18rem;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+input:focus{
+  outline: none;
+}
+
+
 @media (max-width: 414px) {
   .buttonContainer {
     display: inline;
@@ -97,13 +115,14 @@ cursor: pointer;
   .frame{
     display: none;
   }
+  .searchBox{
+    display: none;
+  }
  
   @media (max-width: 414px) {
     .pageButton{
       margin-bottom: 10px;
     }
   }
-
- 
     
 }

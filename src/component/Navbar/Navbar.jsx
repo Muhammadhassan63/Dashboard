@@ -1,29 +1,22 @@
 import React from "react";
-import profileImage from '../../assets/User_Pic.png'
-import notification from '../../assets/notification.png'
-import barIcon from '../../assets/barIcon.png'
-import navIcon from '../../assets/navIcon.png'
+import profileImage from "../../assets/User_Pic.png";
+import style from "./navbar.module.css";
 
-
-
-import style from './navbar.module.css'
-const Navbar = () => {
+const Navbar = ({ username, imageURL }) => {
   return (
     <div className={style.topNav}>
       <div className={style.topNavWrapper}>
         <div className={style.searchBox}>
-            <img src={navIcon} alt="icon" />
-          <input type="text" placeholder="Type Something" />
+          
         </div>
         <div className={style.TopNavRight}>
-          <div className={style.icons}>
-            <img src={barIcon} alt="icon" />
-          </div>
-          <div className={style.icons}>
-            <img src={notification} alt="icon" />
-          </div>
+          <div className={style.username}>{username}</div>
           <div className={style.profileImage}>
-              <img src={profileImage} alt="icon" />
+            {imageURL ? (
+              <img src={imageURL} alt="icon" style={{width:'5rem', height:'5rem', borderRadius:'5rem'}} />
+            ) : (
+              <img src={profileImage} alt="icon" style={{width:'5rem', height:'5rem', borderRadius:'5rem'}} />
+            )}
           </div>
         </div>
       </div>

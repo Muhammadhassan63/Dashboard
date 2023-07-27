@@ -22,24 +22,18 @@
     align-items: center; 
   }
 
-  .icons {
-    margin-right: 1rem; 
-    cursor: pointer;
-  }
+ 
 
-  .searchBox input {
-    padding: 0.6rem; 
-    border-radius: 6px; 
-    color: #BAC4D1;
-    font-family: "Roboto";
-    font-size: 0.8rem;
-    font-weight: 400;
-    background-color: #3B4758;
-    width: 18rem;
-    border: none;
-  }
+ 
 
-  input:focus{
-    outline: none;
-  }
+
+
+.username{
+  color:#fff;
+  padding: 2rem;
+  
+  font-size: 1.1rem;
+  font-weight: 700;
+
+}
   

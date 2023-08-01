@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logo.png";
 import icon from "../../assets/icon.png";
 import icon1 from "../../assets/icon-1.png";
 import icon2 from "../../assets/icon-2.png";

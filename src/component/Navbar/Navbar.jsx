@@ -13,9 +13,9 @@ const Navbar = ({ username, imageURL }) => {
           <div className={style.username}>{username}</div>
           <div className={style.profileImage}>
             {imageURL ? (
-              <img src={imageURL} alt="icon" style={{width:'5rem', height:'5rem', borderRadius:'5rem'}} />
+              <img src={imageURL} alt="icon" style={{width:'3rem', height:'3rem', borderRadius:'3rem'}} />
             ) : (
-              <img src={profileImage} alt="icon" style={{width:'5rem', height:'5rem', borderRadius:'5rem'}} />
+              <img src={profileImage} alt="icon" style={{width:'3rem', height:'3rem', borderRadius:'3rem'}} />
             )}
           </div>
         </div>

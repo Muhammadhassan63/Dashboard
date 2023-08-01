@@ -95,6 +95,29 @@ input:focus{
   outline: none;
 }
 
+.datebox, .sortButton{
+  display: flex;
+  justify-content: end;
+}
+
+.datebox input{
+  margin-left: 0.8rem;
+  border-radius: 6px; 
+  color: #fcfcfc;
+  font-family: "Roboto";
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: #3B4758;
+  width: 10rem;
+  border: none;
+  
+}
+
+.sortButton{
+  margin: 1rem 0;
+
+}
+
 
 @media (max-width: 414px) {
   .buttonContainer {

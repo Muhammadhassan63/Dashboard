@@ -4,7 +4,7 @@ import Layout from '../component/Layout/Layout'
 export default function Dashboard() {
   return (
     <div>
-        <Layout/>
+        <button>hello</button>
       
     </div>
   )

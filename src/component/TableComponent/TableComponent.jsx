@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ActionIcon1 from "../../assets/action-icon1.png";
 import ActionIcon2 from "../../assets/action-icon2.png";
 import style from "./TableComponent.module.css";
@@ -10,14 +10,11 @@ const TableComponent = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const fetchData = (startDateValue, endDateValue) => {
     const startDateTimestamp = startDateValue ? new Date(startDateValue).getTime() : "";
     const endDateTimestamp = endDateValue ? new Date(endDateValue).getTime() : "";
-
+    console.log(startDateTimestamp);
+    console.log(endDateTimestamp);
     let apiUrl = "http://127.0.0.1:8000/generate_report/";
 
     if (startDateTimestamp && endDateTimestamp) {
@@ -27,7 +24,7 @@ const TableComponent = () => {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        // Assuming the response data structure is {"data": [{"user_summaries": [...] }]}
+        console.log(data);
         const userSummaries = data?.data?.[0]?.user_summaries || [];
         setFilteredData(userSummaries);
       })
@@ -72,6 +69,10 @@ const TableComponent = () => {
     setFilteredData(filteredResults);
   };
 
+  const handleOkButtonClick = () => {
+    fetchData(startDate, endDate);
+  };
+
   return (
     <div className={style.tableContainer}>
       <div className={style.searchBox}>
@@ -100,7 +101,7 @@ const TableComponent = () => {
       </div>
 
       <div className={style.sortButton}>
-        <button onClick={() => handleSort()}>Okay</button>
+        <button onClick={handleOkButtonClick}>OK</button>
       </div>
 
       <div className={style.roundedTableWrapper}>

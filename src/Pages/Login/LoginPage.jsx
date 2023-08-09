@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
 
+import Cookies from 'js-cookie';
 
 
 const LoginPage = ({ handleLogin }) => {
@@ -8,12 +9,14 @@ const LoginPage = ({ handleLogin }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
  
-
-
 // Log the hashed values to the console
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    Cookies.set('userEmail', 'test@example.com');
+    const storedEmail = Cookies.get('userEmail');
+    console.log('Stored Email:', storedEmail);
+  
     // if (
     //   email.trim() === "" ||
     //   password.trim() === "" ||
@@ -30,6 +33,7 @@ const LoginPage = ({ handleLogin }) => {
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify({ email, password }),
       })
         .then((response) => response.json())

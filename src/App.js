@@ -4,7 +4,8 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Login from './Pages/Login/LoginPage';
 import Layout from './component/Layout/Layout';
 import { AuthContext } from './AuthContext.js'; 
-import axios from 'axios';
+
+
 
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
     localStorage.removeItem('jwtToken');
     setIsLoggedIn(false);
   };
+
+
+   
+
 
 
   

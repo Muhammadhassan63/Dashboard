@@ -5,9 +5,13 @@ const app = express();
 const { sha512 } = require("js-sha512");
 const secretKey = "secretkey";
 const PORT = 8080;
-
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
+const Cookies = require('js-cookie');
+
+
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
@@ -18,9 +22,13 @@ app.post("/login", (req, res) => {
   
 
   // You can implement your own logic to check the credentials here
-  if (hashedEmail === "ab901d0112b7f85a9520651cc01864dc60620f74dd92a95db1f199fa4e579f3ae1db2d33cb7ce315e9d87cbc40f275a625b875810f3e229c4eb75241803334c0" && hashedPassword === "c9728f839e5d279f357e81a097df6fcad9d89b319060a3c1aac889c96ab2ad229bdfde0dce430714ac53b7f82ebb1da524b22be98eef7205653f4649d4757599") {
+  if (hashedEmail === "1" && hashedPassword === "1234") {
+  // if(email==="1" && password === "1234"){
     const user = { email: email };
-    const token = jwt.sign({ user }, secretKey, { expiresIn: "100s" });
+    const token = jwt.sign({ user }, secretKey, { expiresIn: "1hr" });
+    Cookies.set('adminEmail', email);
+    Cookies.set('adminPassword', password);
+
     res.json({ token });
     
   } else {

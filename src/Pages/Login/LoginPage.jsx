@@ -1,73 +1,34 @@
 import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
+import { sha512 } from "js-sha512";
+import { adminEmail,adminPassword } from "../../credentials";
 
-import Cookies from 'js-cookie';
 
-
-const LoginPage = ({ handleLogin }) => {
+const LoginPage = ({handleLoginProp}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
- 
-// Log the hashed values to the console
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    Cookies.set('userEmail', 'test@example.com');
-    const storedEmail = Cookies.get('userEmail');
-    console.log('Stored Email:', storedEmail);
-  
-    // if (
-    //   email.trim() === "" ||
-    //   password.trim() === "" ||
-    //   !validateEmail(email) ||
-    //   password.length < 8
-    // ) {
-    //   setError("Password is less than 8 digits or email format is not correct");
-    // } else {
-      // Hash the email and password using SHA-512
-      
-        
-      fetch("http://localhost:8080/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify({ email, password }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.token) {
-            setError("");
-            handleLogin(data.token);
-          } else {
-            setError(data.message);
-          }
-        })
-        .catch((error) => {
-          setError("Error occurred while logging in");
-        });
-    
-  };
-
-
-  const validateEmail = (email) => {
-    const emailRegex = /\S+@\S+\.\S+/;
-    return emailRegex.test(email);
-  };
 
   const handleInputChange = () => {
     setError("");
   };
 
+  const handleLogin = () => {
+    const hashedEmail = sha512(email);
+    const hashedPassword = sha512(password);
+    if (hashedEmail === adminEmail && hashedPassword === adminPassword) {
+      handleLoginProp();
 
- 
+    } else {
+      setError("Invalid credentials");
+    }
+  };
+
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer}>
         <h1 className={styles.loginHeading}>Login Page</h1>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className={styles.formField}>
             <div className={styles.formGroup}>
               <label htmlFor="email">Email</label>
@@ -77,7 +38,6 @@ const LoginPage = ({ handleLogin }) => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  
                   handleInputChange(); // Call the function to reset error
                 }}
                 required
@@ -97,7 +57,9 @@ const LoginPage = ({ handleLogin }) => {
               />
             </div>
           </div>
-          <button type="submit">Login</button>
+          <button type="button" onClick={handleLogin}>
+            Login
+          </button>
           {error && (
             <p style={{ color: "#fff", textAlign: "center" }}>{error}</p>
           )}

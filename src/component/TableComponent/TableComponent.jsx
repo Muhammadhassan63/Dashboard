@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ActionIcon1 from "../../assets/action-icon1.png";
 import ActionIcon2 from "../../assets/action-icon2.png";
 import style from "./TableComponent.module.css";
+import { adminEmail, adminPassword } from '../../credentials.js'
 const Cookies = require('js-cookie');
 
 
@@ -11,6 +12,8 @@ const TableComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+
+
 
   const fetchData = (startDateValue, endDateValue) => {
     const startDateTimestamp = startDateValue ? new Date(startDateValue).getTime() : "";
@@ -22,10 +25,8 @@ const TableComponent = () => {
     if (startDateTimestamp && endDateTimestamp) {
       apiUrl += `?startDate=${startDateTimestamp}&endDate=${endDateTimestamp}`;
     }
-
-    const adminEmailCookie = Cookies.get('adminEmail'); 
-    const adminPasswordCookie = Cookies.get('adminPassword');
-    const credentials = btoa(`${adminEmailCookie}:${adminPasswordCookie}`);
+ 
+    const credentials = btoa(`${adminEmail}:${adminPassword}`);
 
     
     const requestOptions = {
@@ -35,6 +36,9 @@ const TableComponent = () => {
         "Content-Type": "application/json"
       }
     };
+        // Setting the cookies 
+        Cookies.set('adminEmail', adminEmail);
+        Cookies.set('adminPassword', adminPassword);
 
     fetch(apiUrl)
       .then((response) => response.json())
